@@ -1,421 +1,338 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tshwaragano | Find Your Future</title>
+  <title>Tshwaragano | Find Work in Botswana</title>
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      color: #17332b;
-      background: #f7f9f7;
+      background: #f4f7f5;
+      color: #173b30;
     }
+
     header {
-      background: #fff;
-      padding: 20px 7%;
+      background: #123d35;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+
+    header p {
+      margin-bottom: 0;
+      color: #d5eadf;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      background: white;
+      padding: 15px;
+      border-bottom: 1px solid #dce7df;
+    }
+
+    nav a {
+      color: #174c3c;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .hero {
+      background: #d8eee0;
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: clamp(28px, 5vw, 44px);
+      margin: 0 0 15px;
+    }
+
+    .hero p {
+      line-height: 1.6;
+      max-width: 650px;
+      margin: 0 auto 22px;
+    }
+
+    .search {
+      display: flex;
+      gap: 8px;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .search input {
+      flex: 1;
+      min-width: 0;
+      padding: 13px;
+      border: 1px solid #b8cfc0;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      border: none;
+      border-radius: 8px;
+      padding: 13px 18px;
+      background: #176346;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0d4933;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: auto;
+      padding: 30px 20px;
+    }
+
+    .section-heading {
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 12px;
-      border-bottom: 1px solid #e4e9e5;
+      gap: 10px;
     }
-    .logo { font-size: 25px; font-weight: bold; color: #147653; }
-    nav a {
-      color: #17332b;
-      text-decoration: none;
-      margin-left: 18px;
-      font-size: 14px;
-    }
-    .hero {
-      background: #126747;
-      color: white;
-      padding: 70px 7%;
-      text-align: center;
-    }
-    .hero h1 { font-size: clamp(32px, 5vw, 52px); margin: 0 0 18px; }
-    .hero p { font-size: 18px; line-height: 1.6; }
-    .search {
-      background: white;
-      max-width: 650px;
-      margin: 28px auto 0;
-      padding: 8px;
-      border-radius: 10px;
-      display: flex;
-      gap: 8px;
-    }
-    input {
-      min-width: 0;
-      flex: 1;
-      padding: 14px;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      font-size: 16px;
-    }
-    button {
-      background: #e5b94c;
-      color: #17332b;
-      border: 0;
-      padding: 14px 20px;
-      border-radius: 6px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    main { max-width: 1050px; margin: auto; padding: 35px 20px; }
-    h2 { margin-bottom: 8px; }
-    .muted { color: #63736b; line-height: 1.6; }
+
     .jobs {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 18px;
-      margin-top: 24px;
+      margin-top: 20px;
     }
+
     .job {
       background: white;
-      border: 1px solid #e0e7e2;
+      border: 1px solid #dce7df;
       border-radius: 12px;
       padding: 22px;
     }
-    .tag {
-      display: inline-block;
-      background: #e4f4eb;
-      color: #126747;
-      border-radius: 20px;
-      padding: 6px 10px;
-      font-size: 12px;
+
+    .job h3 {
+      margin-top: 0;
     }
-    .job button { width: 100%; margin-top: 12px; }
-    .about {
-      background: #eaf3ed;
-      padding: 28px;
-      margin-top: 35px;
-      border-radius: 12px;
+
+    .company {
+      color: #587267;
+      font-weight: bold;
     }
-    footer {
-      background: #17332b;
-      color: white;
-      padding: 28px 7%;
-      text-align: center;
-      line-height: 1.8;
-    }
-    @media (max-width: 500px) {
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tshwaragano | Find Your Future</title>
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      color: #17332b;
-      background: #f7f9f7;
-    }
-    header {
-      background: #fff;
-      padding: 20px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      border-bottom: 1px solid #e4e9e5;
-    }
-    .logo { font-size: 25px; font-weight: bold; color: #147653; }
-    nav a {
-      color: #17332b;
-      text-decoration: none;
-      margin-left: 18px;
+
+    .details {
+      color: #52665c;
+      line-height: 1.7;
       font-size: 14px;
     }
-    .hero {
-      background: #126747;
-      color: white;
-      padding: 70px 7%;
-      text-align: center;
+
+    .job button {
+      width: 100%;
+      margin-top: 12px;
     }
-    .hero h1 { font-size: clamp(32px, 5vw, 52px); margin: 0 0 18px; }
-    .hero p { font-size: 18px; line-height: 1.6; }
-    .search {
-      background: white;
-      max-width: 650px;
-      margin: 28px auto 0;
-      padding: 8px;
-      border-radius: 10px;
-      display: flex;
-      gap: 8px;
-    }
-    input {
-      min-width: 0;
-      flex: 1;
-      padding: 14px;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      font-size: 16px;
-    }
-    button {
-      background: #e5b94c;
-      color: #17332b;
-      border: 0;
-      padding: 14px 20px;
-      border-radius: 6px;
+
+    #message {
+      margin-top: 18px;
       font-weight: bold;
-      cursor: pointer;
+      color: #176346;
     }
-    main { max-width: 1050px; margin: auto; padding: 35px 20px; }
-    h2 { margin-bottom: 8px; }
-    .muted { color: #63736b; line-height: 1.6; }
-    .jobs {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 18px;
-      margin-top: 24px;
-    }
-    .job {
-      background: white;
-      border: 1px solid #e0e7e2;
-      border-radius: 12px;
-      padding: 22px;
-    }
-    .tag {
-      display: inline-block;
-      background: #e4f4eb;
-      color: #126747;
-      border-radius: 20px;
-      padding: 6px 10px;
-      font-size: 12px;
-    }
-    .job button { width: 100%; margin-top: 12px; }
-    .about {
-      background: #eaf3ed;
-      padding: 28px;
-      margin-top: 35px;
-      border-radius: 12px;
-    }
+
     footer {
-      background: #17332b;
-      color: white;
-      padding: 28px 7%;
       text-align: center;
-      line-height: 1.8;
+      background: #123d35;
+      color: white;
+      padding: 24px 15px;
+      margin-top: 30px;
     }
-    @media (max-width: 500px) {
-      header { padding: 18px; }
-      nav a { margin-left: 8px; }
-      .hero { padding: 48px 18px; }
-      .search { flex-direction: column; }
+
+    @media (max-width: 600px) {
+      .search {
+        flex-direction: column;
+      }
+
+      .jobs {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 35px 18px;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo">Tshwaragano</div>
-    <nav>
-      <a href="#jobs">Find Jobs</a>
-      <a href="#about">About Us</a>
-    </nav>
+    <h1>Tshwaragano</h1>
+    <p>Connecting talent with opportunity in Botswana</p>
   </header>
 
-  <section class="hero">
-    <h1>Your future starts here.</h1>
-    <p>Connecting job seekers and employers across Botswana.</p>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#jobs">Find Jobs</a>
+    <a href="#about">About Us</a>
+  </nav>
+
+  <section class="hero" id="home">
+    <h2>Find work that moves you forward.</h2>
+    <p>
+      Discover job opportunities, connect with employers,
+      and take the next step in your career.
+    </p>
+
     <div class="search">
-      <input id="search" type="search"
-        placeholder="Search jobs or locations">
-      <button onclick="searchJobs()">Find Jobs</button>
+      <input
+        id="searchInput"
+        type="search"
+        placeholder="Search job title, company or town"
+        aria-label="Search jobs"
+      >
+      <button id="searchButton" type="button">Search jobs</button>
     </div>
+
+    <p id="message" role="status"></p>
   </section>
 
   <main>
     <section id="jobs">
-      <h2>Explore Opportunities</h2>
-      <p class="muted">
-        Discover example job categories and start planning your next step.
-      </p>
-      <div class="jobs" id="job-list">
-        <article class="job" data-search="administration gaborone">
-          <span class="tag">Example listing</span>
-          <h3>Administrative Assistant</h3>
-          <p class="muted">Location: Gaborone, Botswana</p>
-          <p>Help a team stay organised and support daily office activities.</p>
-          <button onclick="showDetails('Administrative Assistant')">
-            View Details
-          </button>
-        </article>
-        <article class="job" data-search="customer service francistown">
-          <span class="tag">Example listing</span>
-          <h3>Customer Service Assistant</h3>
-          <p class="muted">Location: Francistown, Botswana</p>
-          <p>Assist customers and help answer everyday questions.</p>
-          <button onclick="showDetails('Customer Service Assistant')">
-            View Details
-          </button>
-        </article>
-        <article class="job" data-search="information technology maun">
-          <span class="tag">Example listing</span>
-          <h3>IT Support Assistant</h3>
-          <p class="muted">Location: Maun, Botswana</p>
-          <p>Help people solve basic computer and technology problems.</p>
-          <button onclick="showDetails('IT Support Assistant')">
-            View Details
-          </button>
-        </article>
+      <div class="section-heading">
+        <h2>Latest Job Opportunities</h2>
+        <span id="jobCount"></span>
       </div>
-      <p id="message" role="status" class="muted"></p>
+
+      <div class="jobs" id="jobList"></div>
     </section>
 
-    <section class="about" id="about">
+    <section id="about" style="margin-top: 45px;">
       <h2>About Tshwaragano</h2>
-      <p>
-        Tshwaragano aims to bring job seekers and employers together in
-        one place, making it easier to discover opportunities in Botswana.
+      <p style="line-height: 1.7;">
+        Tshwaragano aims to connect job seekers and employers
+        across Botswana through a simple and accessible
+        recruitment platform.
       </p>
-      <p><strong>Employers:</strong> Prepare to connect with local talent.</p>
-      <p><strong>Job seekers:</strong> Explore opportunities and plan your future.</p>
     </section>
   </main>
 
   <footer>
-    <strong>Tshwaragano</strong><br>
-    Connecting people with opportunities in Botswana.<br>
-    <small>Sample website — example jobs only, not verified vacancies.</small>
+    <strong>Tshwaragano</strong>
+    <p>Connecting Botswana's talent with opportunity.</p>
+    <small>© 2026 Tshwaragano</small>
   </footer>
 
   <script>
-    function searchJobs() {
-      const query = document.getElementById('search').value
-        .trim().toLowerCase();
-      const jobs = document.querySelectorAll('.job');
-      let count = 0;
+    const jobs = [
+      {
+        title: "Sales Representative",
+        company: "Kgalagadi Trading",
+        location: "Gaborone",
+        type: "Full-time",
+        salary: "P5,000–P8,000 per month",
+        description:
+          "Build customer relationships, support sales activities, and help the team meet its targets."
+      },
+      {
+        title: "Junior Accountant",
+        company: "Metsi Business Group",
+        location: "Francistown",
+        type: "Full-time",
+        salary: "P7,000–P10,000 per month",
+        description:
+          "Assist with bookkeeping, account reconciliations, and monthly financial reporting."
+      },
+      {
+        title: "IT Support Technician",
+        company: "BotsTech Solutions",
+        location: "Maun",
+        type: "Full-time",
+        salary: "P8,000–P12,000 per month",
+        description:
+          "Help staff troubleshoot computers, software, and everyday technical issues."
+      }
+    ];
 
-      jobs.forEach(function(job) {
-        const text = (job.innerText + ' ' + job.dataset.search)
-          .toLowerCase();
-        const matches = !query || text.includes(query);
-        job.style.display = matches ? '' : 'none';
-        if (matches) count++;
+    const jobList = document.getElementById("jobList");
+    const searchInput = document.getElementById("searchInput");
+    const searchButton = document.getElementById("searchButton");
+    const jobCount = document.getElementById("jobCount");
+    const message = document.getElementById("message");
+
+    function renderJobs() {
+      const query = searchInput.value.trim().toLowerCase();
+
+      const filteredJobs = jobs.filter(job => {
+        const searchableText = [
+          job.title,
+          job.company,
+          job.location,
+          job.type
+        ].join(" ").toLowerCase();
+
+        return searchableText.includes(query);
       });
 
-      document.getElementById('message').textContent =
-        count ? count + ' example listing(s) shown.' :
-        'No matching example listings. Try another search.';
-    }
+      jobCount.textContent =
+        filteredJobs.length + " jobs found";
 
-    function showDetails(title) {
-      alert(title + '\\n\\nThis is a sample listing. Applications are not yet enabled.');
-    }
-  </script>
-</body>
-</html>
+      if (filteredJobs.length === 0) {
+        jobList.innerHTML =
+          '<p>No matching jobs found. Try another search.</p>';
+        return;
+      }
 
-      header { padding: 18px; }
-      nav a { margin-left: 8px; }
-      .hero { padding: 48px 18px; }
-      .search { flex-direction: column; }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="logo">Tshwaragano</div>
-    <nav>
-      <a href="#jobs">Find Jobs</a>
-      <a href="#about">About Us</a>
-    </nav>
-  </header>
+      jobList.innerHTML = filteredJobs.map((job, index) => `
+        <article class="job">
+          <h3>${job.title}</h3>
+          <p class="company">${job.company}</p>
 
-  <section class="hero">
-    <h1>Your future starts here.</h1>
-    <p>Connecting job seekers and employers across Botswana.</p>
-    <div class="search">
-      <input id="search" type="search"
-        placeholder="Search jobs or locations">
-      <button onclick="searchJobs()">Find Jobs</button>
-    </div>
-  </section>
+          <div class="details">
+            <div>📍 ${job.location}</div>
+            <div>💼 ${job.type}</div>
+            <div>💰 ${job.salary}</div>
+          </div>
 
-  <main>
-    <section id="jobs">
-      <h2>Explore Opportunities</h2>
-      <p class="muted">
-        Discover example job categories and start planning your next step.
-      </p>
-      <div class="jobs" id="job-list">
-        <article class="job" data-search="administration gaborone">
-          <span class="tag">Example listing</span>
-          <h3>Administrative Assistant</h3>
-          <p class="muted">Location: Gaborone, Botswana</p>
-          <p>Help a team stay organised and support daily office activities.</p>
-          <button onclick="showDetails('Administrative Assistant')">
-            View Details
+          <p>${job.description}</p>
+
+          <button type="button" data-job="${jobs.indexOf(job)}">
+            Apply for this job
           </button>
         </article>
-        <article class="job" data-search="customer service francistown">
-          <span class="tag">Example listing</span>
-          <h3>Customer Service Assistant</h3>
-          <p class="muted">Location: Francistown, Botswana</p>
-          <p>Assist customers and help answer everyday questions.</p>
-          <button onclick="showDetails('Customer Service Assistant')">
-            View Details
-          </button>
-        </article>
-        <article class="job" data-search="information technology maun">
-          <span class="tag">Example listing</span>
-          <h3>IT Support Assistant</h3>
-          <p class="muted">Location: Maun, Botswana</p>
-          <p>Help people solve basic computer and technology problems.</p>
-          <button onclick="showDetails('IT Support Assistant')">
-            View Details
-          </button>
-        </article>
-      </div>
-      <p id="message" role="status" class="muted"></p>
-    </section>
+      `).join("");
 
-    <section class="about" id="about">
-      <h2>About Tshwaragano</h2>
-      <p>
-        Tshwaragano aims to bring job seekers and employers together in
-        one place, making it easier to discover opportunities in Botswana.
-      </p>
-      <p><strong>Employers:</strong> Prepare to connect with local talent.</p>
-      <p><strong>Job seekers:</strong> Explore opportunities and plan your future.</p>
-    </section>
-  </main>
+      jobList.querySelectorAll("[data-job]").forEach(button => {
+        button.addEventListener("click", () => {
+          const job = jobs[Number(button.dataset.job)];
 
-  <footer>
-    <strong>Tshwaragano</strong><br>
-    Connecting people with opportunities in Botswana.<br>
-    <small>Sample website — example jobs only, not verified vacancies.</small>
-  </footer>
-
-  <script>
-    function searchJobs() {
-      const query = document.getElementById('search').value
-        .trim().toLowerCase();
-      const jobs = document.querySelectorAll('.job');
-      let count = 0;
-
-      jobs.forEach(function(job) {
-        const text = (job.innerText + ' ' + job.dataset.search)
-          .toLowerCase();
-        const matches = !query || text.includes(query);
-        job.style.display = matches ? '' : 'none';
-        if (matches) count++;
+          message.textContent =
+            "You selected " + job.title +
+            ". Online applications will be available when the application system is connected.";
+        });
       });
-
-      document.getElementById('message').textContent =
-        count ? count + ' example listing(s) shown.' :
-        'No matching example listings. Try another search.';
     }
 
-    function showDetails(title) {
-      alert(title + '\\n\\nThis is a sample listing. Applications are not yet enabled.');
-    }
+    searchButton.addEventListener("click", renderJobs);
+
+    searchInput.addEventListener("input", renderJobs);
+
+    searchInput.addEventListener("keydown", event => {
+      if (event.key === "Enter") {
+        renderJobs();
+      }
+    });
+
+    renderJobs();
   </script>
 </body>
 </html>
